@@ -13,16 +13,13 @@
     <packaging>pom</packaging>
     <modules>
         <module>user-interface</module>
+        <module>user-impl</module>
     </modules>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
+  <!--  <dependencies>
+
+    </dependencies>-->
 
 
 </project>
