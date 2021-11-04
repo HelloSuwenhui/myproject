@@ -1,24 +1,21 @@
-package com.example.userimpl.serviceImpl;
+package com.example.web.controller;
 
 import com.example.userInterface.po.Person;
 import com.example.userInterface.service.TestService;
-import com.example.userimpl.mapper.PersonMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
-@Slf4j
-public class TestServiceImpl implements TestService {
+@RequestMapping("user")
+public class PersonController {
     @Autowired
-    private PersonMapper personMapper;
+    private TestService testService;
 
-    @Override
-    @PostMapping(value = "test")
+    @PostMapping("test")
     public Person test() {
-        return personMapper.queryById(1);
+        return testService.test();
     }
 }
+
