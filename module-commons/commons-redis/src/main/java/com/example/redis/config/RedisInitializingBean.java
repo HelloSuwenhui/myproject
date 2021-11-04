@@ -15,7 +15,7 @@ public class RedisInitializingBean implements BeanFactoryAware, InitializingBean
         this.beanFactory = beanFactory;
     }
 
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         RedisTemplate template = beanFactory.getBean(RedisTemplate.class);
         RedisUtils.setRedisTemplate(template);
     }
