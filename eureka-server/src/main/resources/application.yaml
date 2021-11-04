@@ -1,0 +1,20 @@
+# 应用名称
+#spring.application.name=eureka-server
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 2001
+eureka:
+  instance:
+    hostname: eureka-server
+  client:
+    service-url:
+      #服务都有一个地址，用于集群之间的通信，默认为 localhost:8761/eureka,因为该路径是以map的方式存储，所以defaultZone是key，http://127.0.0.1:2001/eureka是value
+      defaultZone: http://127.0.0.1:2001/eureka
+    #单机（没有集群部署）设置未false 当服务启动时会根据service-url地址去进行注册，而当前是单机模式而非集群，service-url的值为自身的路径，这时就会出现自己注册自己的情况，但是自身并没有启动成功，从而就会出现（com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect）无法连接的错误，因为默认值是true所以当单机环境下，需要设置为false。
+    register-with-eureka: false
+
+    #关闭注册中心自我保护机制
+  server:
+    enable-self-preservation: false
