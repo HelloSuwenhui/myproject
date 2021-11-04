@@ -1,5 +1,6 @@
 package com.example.redis.config;
 
+import com.example.redis.util.RedisUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -15,7 +16,7 @@ public class RedisInitializingBean implements BeanFactoryAware, InitializingBean
     }
 
     public void afterPropertiesSet() throws Exception {
-        RedisTemplate bean = beanFactory.getBean(RedisTemplate.class);
-
+        RedisTemplate template = beanFactory.getBean(RedisTemplate.class);
+        RedisUtils.setRedisTemplate(template);
     }
 }
