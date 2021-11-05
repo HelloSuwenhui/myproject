@@ -1,20 +1,19 @@
 package com.example.redis.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RedisUtils {
-    private volatile static RedisTemplate redisTemplate;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
-    public RedisUtils() {
+    public RedisTemplate getRedisTemplate() {
+        return redisTemplate;
     }
 
-    public static void setRedisTemplate(RedisTemplate template) {
-        if (redisTemplate == null) {
-            synchronized (RedisUtils.class) {
-                if (redisTemplate == null) {
-                    redisTemplate = template;
-                }
-            }
-        }
+    public void setRedisTemplate(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
     }
 }
