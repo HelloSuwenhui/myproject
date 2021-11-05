@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.userimpl.mapper.PersonMapper">
 
-    <resultMap type="com.example.userInterface.po.Person" id="BaseResultMap">
+    <resultMap type="com.example.userInterface.po.User" id="BaseResultMap">
         <id column="ID" property="id"/>
         <result column="NAME" property="name"/>
     </resultMap>
 
     <select id="queryById" resultMap="BaseResultMap">
-        SELECT * FROM t_PERSON WHERE ID = #{id}
+        SELECT * FROM t_User WHERE ID = #{id}
     </select>
 
 </mapper>

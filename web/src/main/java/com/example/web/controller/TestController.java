@@ -1,7 +1,7 @@
 package com.example.web.controller;
 
-import com.example.userInterface.po.Person;
-import com.example.userInterface.service.TestService;
+import com.example.userInterface.po.User;
+import com.example.userInterface.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("user")
-public class PersonController {
+public class TestController {
     @Autowired
-    private TestService testService;
+    private UserService userService;
 
     @PostMapping("test")
-    public Person test() {
-        return testService.test();
+    public User test() {
+        return userService.test();
     }
 }
 

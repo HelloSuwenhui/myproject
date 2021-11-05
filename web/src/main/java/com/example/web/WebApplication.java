@@ -1,13 +1,12 @@
 package com.example.web;
 
-import com.example.redis.util.RedisUtils;
+import com.example.redis.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @EnableFeignClients(basePackages = "com.example.userInterface.service") //basePackages必须指定 否则 eureka的实现类注入会失败

@@ -1,12 +1,12 @@
 package com.example.userInterface.service;
 
-import com.example.userInterface.po.Person;
+import com.example.userInterface.po.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(value = "user", path = "/user")
-public interface TestService {
+@FeignClient(value = "permissions", path = "/permissions")
+public interface PermissionsService {
 
     @PostMapping(value = "test")
-    Person test();
+    User test();
 }
